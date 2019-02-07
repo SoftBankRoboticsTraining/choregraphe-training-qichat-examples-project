@@ -1,11 +1,39 @@
 topic: ~dlg_Voice_Shaping()
 language: enu
 
-# Defining extra concepts out of words or group of words
-#concept:(hello) [hello hi hey "good morning" greetings]
+concept:(color) [yellow orange green purple black white grey turquoise pink]
+concept:(animal) [lion tiger bear horse elephant monkey dolphin fish turtle lizard bird]
 
-# Catching inputs and triggering outputs
-#u:(e:onStart) $onStopped=1
+#u: ([hi hello "hi there"]) hello! ^nextProposal
 
-# Replying to speech
-#u:(~hello) ~hello
+u:(~greeting) ~greeting
+u:(quit) $onStopped=1
+
+proposal: %BEGIN hi what is your name?
+    u1: (my name is _*) $name=$1 hi $name ^gotoRandom(SMALLTALK)
+
+# Capture User Input and save to a variable
+proposal: %SMALLTALK %FAVCOLOR what is your favorite color? 
+    u1: (_[red blue]) ^first[$1==1 "roses are red!" "violets are blue"] $favcolor=$1 
+    u1: (_~color) ooh, $1 is a good choice! $favcolor=$1 ^nextProposal 
+
+
+#---------------------------------------------------------------------------------------------#
+# ↓ Pepper is an emotive robot. Take advantage of its voice shaping capabilities to really ↓ 
+# ↓ bring her personality to life!                                                         ↓ 
+#---------------------------------------------------------------------------------------------#
+
+proposal: %SMALLTALK %ANIMALS what is your favorite animal?
+    u1:(_~animal) $favanimal=$1 ^first["$favanimal==elephant \vct=120\ me too! \vct=100\ \pau=200\ \style=joyful\ did you know that elephants have really good memories?" "a $favanimal ?"]  that's so cool! \style=neutral\ ^nextProposal  
+  
+u:(talk about animals) ok! ^gotoReactivate(ANIMALS)
+u:(what is your favorite animal) Probably humans! ^gotoReactivate(ANIMALS)
+u:(what's your favorite color) great question! white! ^gotoReactivate(FAVCOLOR)
+u:(how about this weather?) I don't know actually. I can't go outside ^gotoReactivate(WEATHER)
+u:(go back) ^gotoReactivate(BEGIN)
+u:(goodbye) Goodbye $name It was nice talking to you and learning that your favorite color is $favcolor and that your favorite animal is a $favanimal 
+
+
+    
+
+  

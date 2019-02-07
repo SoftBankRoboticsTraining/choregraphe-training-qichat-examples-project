@@ -1,11 +1,21 @@
 topic: ~dlg_Concepts_In_QiChat()
 language: enu
 
-# Defining extra concepts out of words or group of words
-#concept:(hello) [hello hi hey "good morning" greetings]
+# Always define concepts at the top of the topic file
+concept:(hello) [hello hi hey "good morning" greetings]
+concept:(goodbye) [bye goodbye "see ya" "see you"]
 
-# Catching inputs and triggering outputs
-#u:(e:onStart) $onStopped=1
+concept:(good) [good great okay fine "not bad" well awesome]
+concept:(bad) [bad terrible  horrible bad awful "not [great good well]"]
+concept:(i_am_good) [I am] ~good 
+concept:(i_am_bad)  [I'm "I am"] ~bad
 
 # Replying to speech
-#u:(~hello) ~hello
+u:(~hello Pepper) ~hello human!
+
+u:(how are you today) You first! How are you?
+    u1:([~good ~i_am_good]) Glad to hear. I'm ~good too.
+    u1:([~bad ~i_am_bad]) Oh no! Let me know if I cheer you up.
+    
+# Triggers box to stop 
+u:(~goodbye Pepper) ~goodbye human! $onStopped=1

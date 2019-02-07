@@ -1,11 +1,35 @@
 topic: ~dlg_QiChat_Flow_Diagram()
 language: enu
 
-# Defining extra concepts out of words or group of words
-#concept:(hello) [hello hi hey "good morning" greetings]
+topic: ~dlg_ALMemory_Events()
+language: enu
 
-# Catching inputs and triggering outputs
-#u:(e:onStart) $onStopped=1
+# Concepts always first
+concept:(hello) [hello hi hey "good morning" greetings]
+concept:(goodbye) [bye goodbye "see ya" "see you {later}"]
 
-# Replying to speech
-#u:(~hello) ~hello
+concept:(good) [good great okay fine "not bad" well awesome]
+concept:(bad) [bad terrible  horrible bad awful "not [great good well]"]
+
+#---------------------------------------------------------------------------------------------#
+# ↓ ALMemory Events are how state information is communicated throughout Pepper's "brain" ↓ 
+#---------------------------------------------------------------------------------------------#
+
+
+# QiChat can both: 
+#     - listen for events:
+u:(e:onStart) Let’s kick things off!
+u:(e:FrontTactilTouched) Hey, that tickles!
+u:(e:UserIsHappy) So happy you’re happy!
+
+# As well as:
+#     - raise events:
+u:(I’m happy) Cool! $UserIsHappy=1 # ← Create a box to listen to this in the Flow Diagram panel
+
+#---------------------------------------------------------------------------------------------#
+
+# What if you raise a lot of events?
+# You'll want to namespace your ALMemory Events as so:
+u:(I’m sad) Oh no! $PepperMaster/UserIsSad=1 
+u:(I'm optimistic) Cool! $PepperMaster/UserIsOptimistic=1 
+u:(I'm a special snowflake) Aren't we all! $PepperMaster/UserIsASnowFlake=1 

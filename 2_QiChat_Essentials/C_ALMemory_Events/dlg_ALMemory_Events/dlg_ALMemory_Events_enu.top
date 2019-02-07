@@ -1,11 +1,26 @@
 topic: ~dlg_ALMemory_Events()
 language: enu
 
-# Defining extra concepts out of words or group of words
-#concept:(hello) [hello hi hey "good morning" greetings]
+# Concepts always first
+concept:(hello) [hello hi hey "good morning" greetings]
+concept:(goodbye) [bye goodbye "see ya" "see you {later}"]
 
-# Catching inputs and triggering outputs
-#u:(e:onStart) $onStopped=1
+concept:(good) [good great okay fine "not bad" well awesome]
+concept:(bad) [bad terrible  horrible bad awful "not [great good well]"]
 
-# Replying to speech
-#u:(~hello) ~hello
+#---------------------------------------------------------------------------------------------#
+# ↓ ALMemory Events are how state information is communicated throughout Pepper's "brain" ↓ 
+#---------------------------------------------------------------------------------------------#
+
+
+# QiChat can both: 
+#     - listen for events:
+
+u:(e:onStart) Let’s kick things off!
+u:(e:FrontTactilTouched) Hey, that tickles!
+u:(e:UserIsHappy) So happy you’re happy!
+
+
+# as well as:
+#     - raise events:
+u:(I’m happy) Cool! $UserIsHappy=1

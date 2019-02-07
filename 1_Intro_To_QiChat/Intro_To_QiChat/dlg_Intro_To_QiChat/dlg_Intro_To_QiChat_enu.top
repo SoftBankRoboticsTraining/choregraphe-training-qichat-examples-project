@@ -1,6 +1,13 @@
-topic: ~dlg_Intro_to_QiChat()
+topic: ~dlg_Intro_To_QiChat() # ← must always match the topic file; if you ever rename or move files, you may have to manually correct the path or filename within the .pml file
 language: enu
 
+#---------------------------------------------------------------------------------------------#
+# ↑ Auto-generated, necessary headers ↑
+#---------------------------------------------------------------------------------------------#
+
+#---------------------------------------------------------------------------------------------#
+# ↓ Default Choregraphe-generated example code ↓ 
+#---------------------------------------------------------------------------------------------#
 # Defining extra concepts out of words or group of words
 #concept:(hello) [hello hi hey "good morning" greetings]
 
@@ -11,21 +18,16 @@ language: enu
 #u:(~hello) ~hello
 
 #---------------------------------------------------------------------------------------------#
-# Defining extra concepts out of words or group of words
+# ↓ Intro_To_QiChat example code ↓ 
+#---------------------------------------------------------------------------------------------#
+# Define concepts as a group of words or phrases
 concept:(hello) [hello hi hey "good morning" greetings]
 concept:(goodbye) [bye goodbye "see ya" "see you {later}"]
 
-concept:(good) {feeling} {pretty} [good great okay fine "not bad" well awesome]
-concept:(bad) {feeling} {pretty} [bad terrible  horrible bad awful "not [great good well]"]
-concept:(i_am_good) {"I am" I'm} ~good {thanks "thank you"}
-concept:(i_am_bad) {honestly} {"I am" I'm} ~bad {unfortunately "sorry to say"}
-
-# Replying to speech
+# Making Pepper respond to human speech
+# Use concepts defined above
 u:(~hello Pepper) ~hello human! ^goto(HOW_ARE_YOU)
 
-proposal: %HOW_ARE_YOU how are you today?
-    u1:(~good) Glad to hear. I'm ~good too.
-    u1:(~bad) Sorry to hear that. Let me know if there's anything I can do to cheer you up.
     
-# Triggering outputs
+# Triggers the Dialog box to stop
 u:(~goodbye Pepper) ~goodbye human! $onStopped=1

@@ -1,11 +1,35 @@
 topic: ~dlg_Proposals_Tags()
 language: enu
 
-# Defining extra concepts out of words or group of words
-#concept:(hello) [hello hi hey "good morning" greetings]
 
-# Catching inputs and triggering outputs
-#u:(e:onStart) $onStopped=1
+concept:(hello) [hello hi hey "good morning" greetings]
+concept:(goodbye) [bye goodbye "see ya" "see you {later}"]
 
-# Replying to speech
-#u:(~hello) ~hello
+concept:(good) [good great okay fine "not bad" well awesome]
+concept:(bad) [bad terrible  horrible bad awful "not [great good well]"]
+
+#---------------------------------------------------------------------------------------------#
+# ↓ Rules in Choregraphe are how to associate human input with robot output ↓ 
+#---------------------------------------------------------------------------------------------#
+# TYPES OF RULES:
+#
+# User Rule →  u:(human speech) robot output
+# Proposal → proposal: robot output
+# User Sub-Rule → u1:(human speech) robot output
+#---------------------------------------------------------------------------------------------#
+
+
+# Use ^goto Command to Trigger a Tagged Proposal (Tag = HOW_ARE_YOU)
+u:(~hello Pepper) ~hello human! ^goto(HOW_ARE_YOU)
+
+# A Tag is used to identify and access (or restrict access) to a rule
+# Both proposals and user rules can be tagged
+
+# Tag a Proposal using % character followed by a string of alphabetic characters (includes _ )
+proposal: %HOW_ARE_YOU how are you today?
+    u1:(~good) Glad to hear. I'm ~good too.
+    u1:(~bad) Oh no! Let me know if I can cheer you up.
+    
+# Triggering outputs
+u:(~goodbye Pepper) ~goodbye human! $onStopped=1
+

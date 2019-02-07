@@ -1,11 +1,28 @@
 topic: ~dlg_Delimiters()
 language: enu
 
-# Defining extra concepts out of words or group of words
-#concept:(hello) [hello hi hey "good morning" greetings]
+# Delimiters:
+# " " - Phrase Delimiters
+# [ ] - Choice Delimiters
+# { } - Option Delimiters
 
-# Catching inputs and triggering outputs
-#u:(e:onStart) $onStopped=1
+# Basic Delimiter Usage
+concept:(hello) [hello hi hey "good morning" greetings]
+concept:(goodbye) [bye goodbye "see ya" "see you {later}"]
+
+# Nested/Advanced Delimiter Usage
+concept:(good) {feeling} {pretty} [good great okay fine "not bad" well awesome]
+concept:(bad) {feeling} {pretty} [bad terrible  horrible bad awful "not [great good well]"]
+concept:(i_am_good) {"I am" I'm} ~good {thanks "thank you"}
+concept:(i_am_bad) {honestly} {"I am" I'm} ~bad {unfortunately "sorry to say"}
+
 
 # Replying to speech
-#u:(~hello) ~hello
+u:(~hello Pepper) ~hello human!
+
+u:(how are you {today}) You first! How are you?
+    u1:([~good ~i_am_good]) Glad to hear. I'm ~good too.
+    u1:([~bad ~i_am_bad]) Oh no! Let me know if I cheer you up.
+    
+# Triggers box to stop 
+u:(~goodbye Pepper) ~goodbye human! $onStopped=1

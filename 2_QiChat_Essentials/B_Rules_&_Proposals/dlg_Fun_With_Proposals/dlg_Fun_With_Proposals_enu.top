@@ -7,14 +7,21 @@ concept:(animal) [lion tiger bear horse monkey dolphin fish turtle lizard bird]
 u: ([hi hello "hi there"]) hello! ^nextProposal
 
 proposal: %BEGIN how is your day going?
-    u1: (good) glad to hear! ^nextProposal
-    u2: (bad) sorry to hear that. Ask me questions about animals, favorite colors, or the weather if you want to talk!
+    u1: (good) glad to hear! ^deactivate(IMPROVE_MOOD) ^nextProposal
+    u2: (bad) sorry to hear that. Ask me questions about animals, favorite colors, or the weather if you want to talk! 
     
+#---------------------------------------------------------------------------------------------#
+# ↓ Tag a broad category of proposals with a generic tag and each individual proposal with   ↓ 
+# ↓ a specific tag for individual access. Access generic tags with ^gotoRandom. Access       ↓ 
+# ↓ specific tags with ^goto (if the tag is already activated or ^gotoReactivate (if it has  ↓ 
+# ↓ been deactivated).                                                                       ↓ 
+#---------------------------------------------------------------------------------------------#
 proposal: %SMALLTALK %WEATHER is the weather nice today?
+    u1:(yes) %IMPROVE_MOOD that's great! maybe the weather will improve your mood! ^gotoRandom(SMALLTALK) 
     u1:(yes) ah, a beautiful day! ^gotoRandom(SMALLTALK) 
     u1:(no) oh. will it be nice tomorrow?
         u2:(yes) wonderful! ^gotoRandom(SMALLTALK)
-        u2:(no) that's too bad. Let's talk about something else. ^nextProposal
+        u2:(no) that's too bad. Let's talk about something else. ^nextProposal # ← will trigger next ACTIVATED proposal
     # ^stayinScope will make Pepper wait for answer on u1 lvl
     u1:(e:Dialog/NotUnderstood) I didn't understand that. Please say yes or no ^stayInScope  
 
@@ -23,7 +30,8 @@ proposal: %SMALLTALK %FAVCOLOR what is your favorite color?
     
 proposal: %SMALLTALK %ANIMALS what is your favorite animal?
     u1:(~animal) me too! that's so cool! ^nextProposal
-  
+
+# Use ^gotoReactivate (instead of ^goto) in case the tags were already played (and thus deactivated)
 u:(talk about animals) ok! ^gotoReactivate(ANIMALS)
 u:(what is your favorite animal) Probably humans! ^gotoReactivate(ANIMALS)
 u:(what's your favorite color) great question! white! ^gotoReactivate(FAVCOLOR)

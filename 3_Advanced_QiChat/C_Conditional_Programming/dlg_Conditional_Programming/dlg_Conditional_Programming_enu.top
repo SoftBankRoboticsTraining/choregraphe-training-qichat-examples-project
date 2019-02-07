@@ -1,11 +1,47 @@
 topic: ~dlg_Conditional_Programming()
 language: enu
 
-# Defining extra concepts out of words or group of words
-#concept:(hello) [hello hi hey "good morning" greetings]
+concept:(color) [yellow orange green purple black white grey turquoise pink]
+concept:(animal) [lion tiger bear horse elephant monkey dolphin fish turtle lizard bird]
 
-# Catching inputs and triggering outputs
-#u:(e:onStart) $onStopped=1
+#---------------------------------------------------------------------------------------------#
+# QiChat allows for basic conditional flow execution. In other words, you can create
+# condition-based responses.
+#
+# Here are some of the ways to create condition-based responses:
+# ^first [answer1 answer2] - evaluates the choices list and speaks the first one that is true
+# ^exist - checks to see if a variable exists
+# ^notExist - checks to see if a variable doesn't exist
+#---------------------------------------------------------------------------------------------#
 
-# Replying to speech
-#u:(~hello) ~hello
+
+u:(~greeting) ~greeting ^goto(BEGIN)
+
+u:(quit) $onStopped=1
+
+proposal: %BEGIN hi what is your name?
+    u1: (my name is _*) $name=$1 hi $name ^gotoRandom(SMALLTALK)
+
+
+#---------------------------------------------------------------------------------------------#
+# ↓ Why not create some flair and "Easter Eggs" in your app by giving some conditional     ↓ 
+# ↓ responses. Can you guess what the following does?                                      ↓ 
+#---------------------------------------------------------------------------------------------#
+proposal: %SMALLTALK %FAVCOLOR what is your favorite color? 
+    u1: (_[red blue]) ^first[$1==1 "roses are red!" "violets are blue"] $favcolor=$1 
+    u1: (_~color) ooh, $1 is a good choice! $favcolor=$1 ^nextProposal 
+
+
+proposal: %SMALLTALK %ANIMALS what is your favorite animal?
+    u1:(_~animal) $favanimal=$1 ^first["$favanimal==elephant \vct=120\ me too! \vct=100\ \pau=200\ \style=joyful\ did you know that elephants have really good memories?" "a $favanimal ?"]  that's so cool! \style=neutral\ ^nextProposal  
+  
+u:(talk about animals) ok! ^gotoReactivate(ANIMALS)
+u:(what is your favorite animal) Probably humans! ^gotoReactivate(ANIMALS)
+u:(what's your favorite color) great question! white! ^gotoReactivate(FAVCOLOR)
+u:(go back) ^gotoReactivate(BEGIN)
+u:(goodbye) ["^exist(name) Goodbye $name It was nice talking to you" "^notExist(name) See ya stranger"]
+
+
+    
+
+  
