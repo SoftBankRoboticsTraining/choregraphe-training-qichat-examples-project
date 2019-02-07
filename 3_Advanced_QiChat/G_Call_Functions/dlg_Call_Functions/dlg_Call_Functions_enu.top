@@ -1,0 +1,31 @@
+topic: ~dlg_Call_Functions()
+language: enu
+
+# Use the ^switchFocus(app-id/behaviorName) to change applications from within QiChat
+
+u:(start the Hangman app) Hangman coming right up ^switchFocus(hangman/.)
+
+# Use the %script keyword to execute python code from QiChat
+u:(1 + 2) result is
+%script
+print 1+2
+%script
+
+
+# Use ^call for a Naoqi method call that you want to complete before any speech happens
+u:(tell me what is your position) Sure. ^call(ALRobotPosture.getPosture())
+c1:(_*) $1
+c1:(crouch) My position is crouch.
+   u2:(ok) What about you ?
+
+# Use ^sCall for a synchronous Naoqi call
+u:(go to rest) I am going to rest now. ^sCall(ALRobotPosture.getPosture()) I am in rest position now.
+
+
+# Use ^pCall for asynchronous Naoqi method calls 
+u:(go to rest) ok ^pCall(ALMotion.rest()) I am going to rest.
+
+
+# Change the mode
+u:(input) answer1 "^mode(body_language_mode) word1 word2..." answer2
+

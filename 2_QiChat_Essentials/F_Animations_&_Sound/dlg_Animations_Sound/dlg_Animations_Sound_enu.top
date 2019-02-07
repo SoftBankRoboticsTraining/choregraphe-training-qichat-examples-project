@@ -1,11 +1,32 @@
 topic: ~dlg_Animations_Sound()
 language: enu
 
-# Defining extra concepts out of words or group of words
-#concept:(hello) [hello hi hey "good morning" greetings]
+# Call animations and sounds to add some dimensionality to your QiChat
 
-# Catching inputs and triggering outputs
-#u:(e:onStart) $onStopped=1
+# Animations can either be run synchronously with the text (interupts the text)
+# or asynchronously (does not interrupt the text)
 
-# Replying to speech
-#u:(~hello) ~hello
+# Playing an animation:
+# Play animation synchronously          =  ^run(app-id/behaviorName)
+# Play animation asynchronously         = ^start(app-id/behaviorName)
+
+# Stopping an animation:
+# Wait for a specific animation to stop = ^wait(app-id/behaviorName)
+# Stop an animation                     = ^stop(app-id/behaviorName)
+
+# Synchronous - interrupting
+u:(hello) I'm going to speak and then wave and then say Hello human. \pau=300\ ready? \pau=100\ ^run(animations/Stand/Gestures/Hey_1) Hello human!
+
+# Asynchronous - uninterrupting
+u:(hello) Check out my air guitar skills ^start(animations/Stand/Waiting/AirGuitar_1) I'm such a rock star. ^wait(animations/Stand/Waiting/AirGuitar_1) Well what do you think?
+
+# Sounds work in the same way as animations
+# Use the default Aldebaran soundset, whose contents you can access via the ALAudioPlayer service's getSoundSetFileNames method
+
+# Synchronous - interrupting
+u:(make a duck sound) K ^runSound(Aldebaran/amb_animal_duck)
+u:(make a gorilla sound) K ^runSound(Aldebaran/amb_animal_gorilla_grunt)
+u:(stop any animal sounds) K ^stopSound(Aldebaran/amb_animal_duck) ^stopSound(Aldebaran/amb_animal_gorilla_grunt)
+
+# Asynchronous - uninterrupting
+u:(pretend you're in a storm) Ok ^startSound(Aldebaran/amb_rain_storm) Wow it's really coming down! ^waitSound(Aldebaran/amb_rain_storm) Oh it looks like it let up

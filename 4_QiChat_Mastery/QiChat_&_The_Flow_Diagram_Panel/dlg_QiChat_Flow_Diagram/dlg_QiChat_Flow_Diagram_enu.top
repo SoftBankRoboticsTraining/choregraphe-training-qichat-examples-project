@@ -20,7 +20,7 @@ concept:(bad) [bad terrible  horrible bad awful "not [great good well]"]
 #     - listen for events:
 u:(e:onStart) Let’s kick things off!
 u:(e:FrontTactilTouched) Hey, that tickles!
-u:(e:UserIsHappy) So happy you’re happy!
+u:(e:onUserHappy) So happy you’re happy!
 
 # As well as:
 #     - raise events:

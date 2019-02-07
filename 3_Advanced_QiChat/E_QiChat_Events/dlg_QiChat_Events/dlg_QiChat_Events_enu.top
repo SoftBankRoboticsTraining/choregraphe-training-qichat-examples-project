@@ -1,11 +1,16 @@
 topic: ~dlg_QiChat_Events()
 language: enu
 
-# Defining extra concepts out of words or group of words
-#concept:(hello) [hello hi hey "good morning" greetings]
+concept:(hello) [hi hello hey] {there}
 
-# Catching inputs and triggering outputs
-#u:(e:onStart) $onStopped=1
+u: (~hello) ~hello ^goto(WEATHER)
+   
+proposal: %WEATHER is the weather nice today?
+    u1: (yes) ah, a beautiful day! 
+    u1: (no) oh. will it be nice tomorrow?
+        u2:(yes) wonderful! 
+        u2:(no) that's too bad. 
+    u1:(e:Dialog/NotUnderstood) you said something but I didn't understand. please tell me yes or no! ^stayInScope  #stayinScope will make Pepper wait for answer on u1 lvl
+    u1:(e:Dialog/NotUnderstood2) The acoustics in here! Am I right? ^stayInScope
 
-# Replying to speech
-#u:(~hello) ~hello
+u:(e:NoOneSpeaks20) ^rand["This will probably start to annoy you soon." "It's been twenty seconds" "My how the time flies!"]

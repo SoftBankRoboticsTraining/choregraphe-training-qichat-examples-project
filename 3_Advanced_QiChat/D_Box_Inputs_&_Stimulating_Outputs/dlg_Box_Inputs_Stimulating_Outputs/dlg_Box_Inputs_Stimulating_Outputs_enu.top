@@ -5,7 +5,13 @@ language: enu
 #concept:(hello) [hello hi hey "good morning" greetings]
 
 # Catching inputs and triggering outputs
-#u:(e:onStart) $onStopped=1
+u:(e:onStart) My Dialog box's on start input has been stimulated.
 
-# Replying to speech
-#u:(~hello) ~hello
+u:(Stimulate my dialog box's output) Stopping the box by stimulating the on stopped output $onStopped=1
+
+u:(Stimulate a non-stopping event output) Triggering a non-stopping output $onEvent=1
+
+u:(pass an output my name) Ok but first I'll need your name.
+	u1:({"my name is" it's "it is"} _*) $name=$1 Ok cool, nice to meet you $name  $onName=$name ^stayInScope
+
+

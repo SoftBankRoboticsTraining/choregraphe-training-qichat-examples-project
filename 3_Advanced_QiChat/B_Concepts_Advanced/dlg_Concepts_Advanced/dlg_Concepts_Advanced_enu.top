@@ -1,11 +1,27 @@
 topic: ~dlg_Concepts_Advanced()
 language: enu
+include: lexicon_enu.top
+# ↑ Use Dialog Lexicon to make it easier to develop ↑  
+
+# You can also include dynamic concepts that can be loaded elsewhere via Python and accessing the ALDialog service's setConcept method
+# e.g. ALDialog.setConcept("song_mp3s", "enu", ["The Times They Are A Changin", "American Pie", "Sweet Home Alabama"])
+dynamic: song_mp3s
 
 # Defining extra concepts out of words or group of words
-#concept:(hello) [hello hi hey "good morning" greetings]
+concept:(hello) [hello hi hey "good morning" greetings]
 
-# Catching inputs and triggering outputs
-#u:(e:onStart) $onStopped=1
+concept:(color) [yellow orange green purple black white grey turquoise pink]
+concept:(animal) [lion horse elephant monkey dolphin fish turtle lizard bird]
 
-# Replying to speech
-#u:(~hello) ~hello
+# Use concepts from Dialog Lexicon: 
+u:(~whats_your_name) My name is Pepper. 
+
+# Use ^enumerate to list out concepts
+u:(~hello) Hello. ~lets_talk_about animals. What is your favorite animal among these options? ^enumerate(~animal)
+u:(name two animals) Ok ^enumerate(~animal, 2) but so you know, I could have named ^size(~animal) animals.
+
+# Use ^rand to choose an option randomly from a concept
+u:(what's your favorite color) At the moment probably ^rand[~color]
+
+# Use dynamic concepts:
+u:(What's a good song) How about the song ^rand(~song_mp3s) ?

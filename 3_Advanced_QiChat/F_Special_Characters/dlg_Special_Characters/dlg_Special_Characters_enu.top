@@ -1,0 +1,61 @@
+topic: ~dlg_Special_Characters()
+language: enu
+
+concept:(hello) [hi hey hello]
+
+#--------------------------------------------------------------------------------#
+# Comments - #
+# Comment is defined by the character #
+# All the characters following # in the same line will be ignored.
+#--------------------------------------------------------------------------------#
+
+# This is a comment
+
+#--------------------------------------------------------------------------------#
+# 
+# Wildcard - *
+# Matches any word or phrase. Use wildcards sparingly. 
+# Too many wildcards can degrade performance of the automatic speech recognition.
+#--------------------------------------------------------------------------------#
+
+u:(_*) you said $1
+
+#--------------------------------------------------------------------------------#
+#
+# Forbidden word - !
+# Allows you to define a forbidden word in a Human input.
+#--------------------------------------------------------------------------------#
+
+u:(!don't go forward) Ok, I'll go forward
+
+#--------------------------------------------------------------------------------#
+# Tag -  %
+# Allows you to identify one or several rule(s) by a tag. 
+# Tags can be activated or deactivated. 
+# If a tag is deactivated, then the sentence won’t be said.
+#--------------------------------------------------------------------------------#
+
+u:(i like tags) we have that in common ^goto(TAG_AFICIONADO)
+
+#--------------------------------------------------------------------------------#
+# Storing Input - _
+# Allows catching one or several words in the Human input and reuse it within 
+# the Robot output directly following.
+#--------------------------------------------------------------------------------#
+
+u:(my name is _*) your name is $1
+
+#--------------------------------------------------------------------------------#
+# - Variables / ALMemory Events / Outputs $
+# Allows the storing of values, assignment/usage of ALMemory event, and 
+# stimulating of a box output.
+#--------------------------------------------------------------------------------#
+
+u:(my name is _*) $name=$1 your name is $name $onName=$name 
+
+#--------------------------------------------------------------------------------#
+# Concept Call - ~
+# Allows the usage of a concept
+#--------------------------------------------------------------------------------#
+
+u:(~hello) ~hello

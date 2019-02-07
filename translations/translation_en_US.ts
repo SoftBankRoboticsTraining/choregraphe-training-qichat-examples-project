@@ -9,4 +9,12 @@
             <translation type="vanished">Hello</translation>
         </message>
     </context>
+    <context>
+        <name>3_Advanced_QiChat/B_Concepts_Advanced/behavior.xar:/Get Localized Text</name>
+        <message>
+            <source>Hello</source>
+            <comment>Text</comment>
+            <translation type="vanished">Hello</translation>
+        </message>
+    </context>
 </TS>
