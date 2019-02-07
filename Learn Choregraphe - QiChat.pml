@@ -42,7 +42,11 @@
         <Dialog name="dlg_QiChat_Functions" src="3_Advanced_QiChat/I_QiChat_Functions/dlg_QiChat_Functions/dlg_QiChat_Functions.dlg" />
         <Dialog name="dlg_QiChat_Flow_Diagram" src="4_QiChat_Mastery/QiChat_&amp;_The_Flow_Diagram_Panel/dlg_QiChat_Flow_Diagram/dlg_QiChat_Flow_Diagram.dlg" />
     </Dialogs>
-    <Resources />
+    <Resources>
+        <File name="README" src="1_Intro_To_QiChat/README.md" />
+        <File name="README" src="4_QiChat_Mastery/README.md" />
+        <File name="README" src="README.md" />
+    </Resources>
     <Topics>
         <Topic name="dlg_Scratch_Pad_enu" src="0_Scratch_Pad/dlg_Scratch_Pad/dlg_Scratch_Pad_enu.top" topicName="dlg_Scratch_Pad" language="en_US" />
         <Topic name="dlg_Intro_To_QiChat_enu" src="1_Intro_To_QiChat/Intro_To_QiChat/dlg_Intro_To_QiChat/dlg_Intro_To_QiChat_enu.top" topicName="dlg_Intro_to_QiChat" language="en_US" />
