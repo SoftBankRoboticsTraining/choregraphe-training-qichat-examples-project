@@ -1,0 +1,31 @@
+topic: ~dlg_Fun_With_Proposals()
+language: enu
+
+concept:(color) [yellow orange green purple black white grey turquoise pink]
+concept:(animal) [lion tiger bear horse monkey dolphin fish turtle lizard bird]
+
+u: ([hi hello "hi there"]) hello! ^nextProposal
+
+proposal: %BEGIN how is your day going?
+    u1: (good) glad to hear! ^nextProposal
+    u2: (bad) sorry to hear that. Ask me questions about animals, favorite colors, or the weather if you want to talk!
+    
+proposal: %SMALLTALK %WEATHER is the weather nice today?
+    u1:(yes) ah, a beautiful day! ^gotoRandom(SMALLTALK) 
+    u1:(no) oh. will it be nice tomorrow?
+        u2:(yes) wonderful! ^gotoRandom(SMALLTALK)
+        u2:(no) that's too bad. Let's talk about something else. ^nextProposal
+    # ^stayinScope will make Pepper wait for answer on u1 lvl
+    u1:(e:Dialog/NotUnderstood) I didn't understand that. Please say yes or no ^stayInScope  
+
+proposal: %SMALLTALK %FAVCOLOR what is your favorite color? 
+    u1: (~color) ooh, that is a good choice! ^nextProposal
+    
+proposal: %SMALLTALK %ANIMALS what is your favorite animal?
+    u1:(~animal) me too! that's so cool! ^nextProposal
+  
+u:(talk about animals) ok! ^gotoReactivate(ANIMALS)
+u:(what is your favorite animal) Probably humans! ^gotoReactivate(ANIMALS)
+u:(what's your favorite color) great question! white! ^gotoReactivate(FAVCOLOR)
+u:(how about this weather?) I don't know actually. I can't go outside ^gotoReactivate(WEATHER)
+u:(go back) ^gotoReactivate(BEGIN)

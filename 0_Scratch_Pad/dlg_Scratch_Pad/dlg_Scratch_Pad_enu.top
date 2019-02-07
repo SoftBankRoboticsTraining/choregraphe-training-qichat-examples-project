@@ -1,0 +1,11 @@
+topic: ~dlg_Scratch_Pad()
+language: enu
+
+# Defining extra concepts out of words or group of words
+concept:(hello) [hello hi hey "good morning" greetings]
+
+# Catching inputs and triggering outputs
+u:(e:onStart) say hello to me
+
+# Replying to speech
+u:(~hello) ~hello world \pau=300\ and now \pau=1000\ goodbye \pau=400\ Dialog terminating... $onStopped=1

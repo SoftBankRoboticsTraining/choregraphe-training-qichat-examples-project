@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="learn-choregraphe-qichat" version="0.0.1">
+ <names>
+  <name lang="en_US">Learn Choregraphe - QiChat</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="0_Scratch_Pad">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="1_Intro_To_QiChat/Intro_To_QiChat">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="2_QiChat_Essentials/A_Concepts_In_QiChat">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="2_QiChat_Essentials/B_Rules_&amp;_Proposals">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="2_QiChat_Essentials/C_ALMemory_Events">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="2_QiChat_Essentials/D_Variables_&amp;_Capturing_Input">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="2_QiChat_Essentials/E_Voice_Shaping">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="2_QiChat_Essentials/F_Animations_&amp;_Sound">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="3_Advanced_QiChat/A_Delimiters">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="3_Advanced_QiChat/B_Concepts_Advanced">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="3_Advanced_QiChat/C_Conditional_Programming">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="3_Advanced_QiChat/D_Box_Inputs_&amp;_Stimulating_Outputs">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="3_Advanced_QiChat/E_QiChat_Events">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="3_Advanced_QiChat/F_Pronunciation">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="3_Advanced_QiChat/G_Special_Characters">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="3_Advanced_QiChat/H_Call_Functions">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="3_Advanced_QiChat/I_QiChat_Functions">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="4_QiChat_Mastery/QiChat_&amp;_The_Flow_Diagram_Panel">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>

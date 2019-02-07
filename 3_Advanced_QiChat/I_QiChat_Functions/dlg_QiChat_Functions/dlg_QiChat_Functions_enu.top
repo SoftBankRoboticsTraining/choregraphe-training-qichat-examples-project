@@ -1,0 +1,6 @@
+topic: ~dlg_QiChat_Functions()
+language: enu
+
+def:greet($age) ^first["$age > 18 Mister" "kid"]
+
+u:(I am _* years old) Hello ^greet($1)
