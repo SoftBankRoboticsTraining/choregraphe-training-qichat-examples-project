@@ -1,6 +1,8 @@
 topic: ~dlg_Call_Functions()
 language: enu
 
+dynamic: songs_mp3
+
 # Use the ^switchFocus(app-id/behaviorName) to change applications from within QiChat
 
 u:(start the Hangman app) Hangman coming right up ^switchFocus(hangman/.)
@@ -17,6 +19,9 @@ u:(tell me what is your position) Sure. ^call(ALRobotPosture.getPosture())
 c1:(_*) $1
 c1:(crouch) My position is crouch.
    u2:(ok) What about you ?
+   
+# Setting a concept dynamically
+u:(set a dynamic concept) Ok ^call(ALDialog.setConcept("songs_mp3", "enu", ["Song 1", "Song 2"])
 
 # Use ^sCall for a synchronous Naoqi call
 u:(go to rest) I am going to rest now. ^sCall(ALRobotPosture.getPosture()) I am in rest position now.

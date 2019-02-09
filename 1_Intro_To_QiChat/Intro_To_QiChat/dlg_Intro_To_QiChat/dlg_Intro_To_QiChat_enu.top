@@ -1,13 +1,15 @@
 topic: ~dlg_Intro_To_QiChat() # ← must always match the topic file; if you ever rename or move files, you may have to manually correct the path or filename within the .pml file
 language: enu
 
-#---------------------------------------------------------------------------------------------#
-# ↑ Auto-generated, necessary headers ↑
-#---------------------------------------------------------------------------------------------#
 
-#---------------------------------------------------------------------------------------------#
+
+#-------------------------------------------------------------#
+# ↑ Auto-generated, necessary headers ↑
+#-------------------------------------------------------------#
+
+#-------------------------------------------------------------#
 # ↓ Default Choregraphe-generated example code ↓ 
-#---------------------------------------------------------------------------------------------#
+#-------------------------------------------------------------#
 # Defining extra concepts out of words or group of words
 #concept:(hello) [hello hi hey "good morning" greetings]
 
@@ -17,9 +19,9 @@ language: enu
 # Replying to speech
 #u:(~hello) ~hello
 
-#---------------------------------------------------------------------------------------------#
+#-------------------------------------------------------------#
 # ↓ Intro_To_QiChat example code ↓ 
-#---------------------------------------------------------------------------------------------#
+#-------------------------------------------------------------#
 # Define concepts as a group of words or phrases
 concept:(hello) [hello hi hey "good morning" greetings]
 concept:(goodbye) [bye goodbye "see ya" "see you {later}"]

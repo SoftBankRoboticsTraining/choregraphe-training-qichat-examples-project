@@ -61,9 +61,10 @@
         <Topic name="dlg_Box_Inputs_Stimulating_Outputs_enu" src="3_Advanced_QiChat/D_Box_Inputs_&amp;_Stimulating_Outputs/dlg_Box_Inputs_Stimulating_Outputs/dlg_Box_Inputs_Stimulating_Outputs_enu.top" topicName="dlg_Box_Inputs_Stimulating_Outputs" language="en_US" />
         <Topic name="dlg_QiChat_Events_enu" src="3_Advanced_QiChat/E_QiChat_Events/dlg_QiChat_Events/dlg_QiChat_Events_enu.top" topicName="dlg_QiChat_Events" language="en_US" />
         <Topic name="dlg_Special_Characters_enu" src="3_Advanced_QiChat/F_Special_Characters/dlg_Special_Characters/dlg_Special_Characters_enu.top" topicName="dlg_Special_Characters" language="en_US" />
-        <Topic name="dlg_Call_Functions_enu" src="3_Advanced_QiChat/G_Call_Functions/dlg_Call_Functions/dlg_Call_Functions_enu.top" topicName="dlg_Call_Functions" language="en_US" />
+        <Topic name="dlg_Call_Functions_enu" src="3_Advanced_QiChat/G_Call_Functions/dlg_Call_Functions/dlg_Call_Functions_enu.top" topicName="" language="" />
         <Topic name="dlg_QiChat_Functions_enu" src="3_Advanced_QiChat/H_QiChat_Functions/dlg_QiChat_Functions/dlg_QiChat_Functions_enu.top" topicName="dlg_QiChat_Functions" language="en_US" />
         <Topic name="dlg_QiChat_Flow_Diagram_enu" src="4_QiChat_Mastery/QiChat_&amp;_The_Flow_Diagram_Panel/dlg_QiChat_Flow_Diagram/dlg_QiChat_Flow_Diagram_enu.top" topicName="" language="" />
+        <Topic name="ExampleDialog_enu" src="0_Scratch_Pad/ExampleDialog/ExampleDialog_enu.top" topicName="ExampleDialog" language="en_US" />
     </Topics>
     <IgnoredPaths />
     <Translations auto-fill="en_US">

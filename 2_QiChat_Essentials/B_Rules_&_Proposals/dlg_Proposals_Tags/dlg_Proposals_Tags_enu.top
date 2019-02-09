@@ -8,15 +8,15 @@ concept:(goodbye) [bye goodbye "see ya" "see you {later}"]
 concept:(good) [good great okay fine "not bad" well awesome]
 concept:(bad) [bad terrible  horrible bad awful "not [great good well]"]
 
-#---------------------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------#
 # ↓ Rules in Choregraphe are how to associate human input with robot output ↓ 
-#---------------------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------#
 # TYPES OF RULES:
 #
 # User Rule →  u:(human speech) robot output
 # Proposal → proposal: robot output
 # User Sub-Rule → u1:(human speech) robot output
-#---------------------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------#
 
 
 # Use ^goto Command to Trigger a Tagged Proposal (Tag = HOW_ARE_YOU)
