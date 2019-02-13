@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.1" uuid="learn-choregraphe-qichat">
+<package uuid="learn-choregraphe-qichat" version="0.0.1">
  <names>
   <name lang="en_US">Learn Choregraphe - QiChat</name>
  </names>

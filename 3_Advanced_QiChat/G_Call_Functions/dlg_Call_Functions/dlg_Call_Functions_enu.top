@@ -10,7 +10,24 @@ u:(start the Hangman app) Hangman coming right up ^switchFocus(hangman/.)
 # Use the %script keyword to execute python code from QiChat
 u:(1 + 2) result is
 %script
-print 1+2
+print 1 + 2
+%script
+
+u:({Pepper} what is ["the sum of _* and _*" "_* [plus and] _*"]) $value1=$1 $value2=$2 the sum of $value1 and $value2 is
+%script
+value1 = ALMemory.getData("value1")
+value2 = ALMemory.getData("value2")
+try:
+    value1 = int(value1)
+    value2 = int(value2)
+except Exception:
+    pass
+print value1 + value2
+%script
+
+u:(my name is _*) $name=$1 your name is
+%script
+print ALMemory.getData("name")
 %script
 
 
@@ -21,7 +38,7 @@ c1:(crouch) My position is crouch.
    u2:(ok) What about you ?
    
 # Setting a concept dynamically
-u:(set a dynamic concept) Ok ^call(ALDialog.setConcept("songs_mp3", "enu", ["Song 1", "Song 2"])
+u:(set a dynamic concept) Ok ^call(ALDialog.setConcept("songs_mp3", "enu", ["Song 1" "Song 2"]))
 
 # Use ^sCall for a synchronous Naoqi call
 u:(go to rest) I am going to rest now. ^sCall(ALRobotPosture.getPosture()) I am in rest position now.
